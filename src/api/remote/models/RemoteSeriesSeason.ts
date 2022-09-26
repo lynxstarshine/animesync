@@ -21,6 +21,7 @@ export class RemoteSeriesSeason {
   readonly title: string;
 
   @clv.IsNumber()
+  @clv.IsOptional()
   @nsg.ApiProperty()
-  readonly number: number
+  readonly number?: number
 }
