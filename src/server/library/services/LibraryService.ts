@@ -158,7 +158,7 @@ export class LibraryService {
         await Promise.all(season.episodes.map(async (episode, episodeIndex) => {
           const episodeName = fetchSeasonEpisodeName(series, season, episode);
           const episodePath = path.join(seasonPath, episodeName);
-          await app.EpisodeInfo.saveAsync(this.fileService, episodePath, app.EpisodeInfo.from(seasonIndex, episodeIndex, episode));
+          await app.EpisodeInfo.saveAsync(this.fileService, episodePath, app.EpisodeInfo.from(season.number !== undefined ? season.number : seasonIndex + 1, episodeIndex, episode));
           await app.EpisodeImage.saveAsync(this.imageService, episodePath, episode).catch(() => {});
         }));
       }));

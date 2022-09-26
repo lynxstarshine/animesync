@@ -9,6 +9,8 @@ export class RemoteSeriesSeasonEpisode {
     this.title = api.property('title', source, sourcePatch, '');
     this.synopsis = api.property('synopsis', source, sourcePatch, undefined);
     this.url = api.property('url', source, sourcePatch, '');
+    this.number = api.property('number', source, sourcePatch, undefined);
+    this.order = api.property('order', source, sourcePatch, undefined);
   }
 
   @clv.IsOptional()
@@ -37,4 +39,14 @@ export class RemoteSeriesSeasonEpisode {
   @clv.IsUrl()
   @nsg.ApiProperty()
   readonly url: string;
+
+  @clv.IsOptional()
+  @clv.IsNumber()
+  @nsg.ApiPropertyOptional()
+  readonly order?: number
+
+  @clv.IsOptional()
+  @clv.IsNumber()
+  @nsg.ApiPropertyOptional()
+  readonly number?: number
 }

@@ -7,6 +7,7 @@ export class RemoteSeriesSeason {
   constructor(source?: RemoteSeriesSeason, sourcePatch?: Partial<RemoteSeriesSeason>) {
     this.episodes = api.property('episodes', source, sourcePatch, []);
     this.title = api.property('title', source, sourcePatch, '');
+    this.number = api.property('number', source, sourcePatch, 0);
   }
 
   @clv.IsArray()
@@ -18,4 +19,8 @@ export class RemoteSeriesSeason {
   @clv.IsString()
   @nsg.ApiProperty()
   readonly title: string;
+
+  @clv.IsNumber()
+  @nsg.ApiProperty()
+  readonly number: number
 }

@@ -11,14 +11,17 @@ export type Collection<T> = {
 export type Episode = {
   description?: string;
   episode?: string;
+  episode_number?: number;
   id: string;
   images: Record<string, Array<Array<Artwork>>>;
   title: string;
+  sequence_number?: number;
 };
 
 export type Season = {
   id: string;
   title: string;
+  season_number: number;
 }
 
 export type Series = {

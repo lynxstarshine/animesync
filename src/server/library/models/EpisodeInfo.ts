@@ -13,9 +13,9 @@ export class EpisodeInfo {
   }
 
   static from(seasonIndex: number, episodeIndex: number, source: app.api.RemoteSeriesSeasonEpisode) {
-    const episode = episodeIndex + 1;
+    const episode =  source.order !== undefined ? source.order : (source.number !== undefined ? source.number : episodeIndex + 1);
     const synopsis = source.synopsis;
-    const season = seasonIndex + 1;
+    const season = seasonIndex;
     const title = source.title;
     const url = source.url;
     return new EpisodeInfo({episode, synopsis, season, title, url});

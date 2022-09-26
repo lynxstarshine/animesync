@@ -15,7 +15,8 @@ export class CrunchyrollBetaRemap {
   static seriesSeason(seriesUrl: string, series: api.Series, season: api.Season, episodes: api.Collection<api.Episode>) {
     return new app.api.RemoteSeriesSeason({
       episodes: episodes.items.map(x => this.seriesSeasonEpisode(seriesUrl, series, x)),
-      title: season.title
+      title: season.title,
+      number: season.season_number
     });
   }
 
@@ -25,7 +26,9 @@ export class CrunchyrollBetaRemap {
       name: episode.episode || episode.title,
       synopsis: episode.description || undefined,
       title: episode.title || undefined,
-      url: new URL(`/watch/${episode.id}/${createSlug(series.title)}:${createSlug(episode.title)}`, seriesUrl).toString()
+      url: new URL(`/watch/${episode.id}/${createSlug(series.title)}:${createSlug(episode.title)}`, seriesUrl).toString(),
+      number: episode.episode_number,
+      order: episode.sequence_number
     });
   }
 
