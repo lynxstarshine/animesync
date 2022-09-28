@@ -15,7 +15,8 @@ export class SettingCore {
     this.fetchTimeoutRetry = api.property('fetchTimeoutRetry', source, sourcePatch, 0);
     this.ffmpeg = api.property('ffmpeg', source, sourcePatch, undefined);
     this.proxyServer = api.property('proxyServer', source, sourcePatch, undefined);
-    this.filterSubtitles = api.property('filterSubtitles', source, sourcePatch, [])
+    this.filterSubtitles = api.property('filterSubtitles', source, sourcePatch, undefined)
+    this.ffmpegCustomSaveParam = api.property('ffmpegCustomSaveParam', source, sourcePatch, undefined);
   }
 
   @clv.IsBoolean()

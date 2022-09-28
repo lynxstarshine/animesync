@@ -5,6 +5,14 @@
     "configurations": ["Server", "Client"]
   }],
   "configurations": [{
+    "args": ["bin/animesync", "download", "https://beta.crunchyroll.com/series/GR751KNZY/attack-on-titan"],
+    "name": "Download",
+    "outFiles": ["${workspaceFolder}/dist/**/*"],
+    "outputCapture": "std",
+    "preLaunchTask": "TypeScript",
+    "request": "launch",
+    "type": "node"
+  },{
     "args": ["bin/animesync", "server"],
     "name": "Server",
     "outFiles": ["${workspaceFolder}/dist/**/*"],
