@@ -80,4 +80,10 @@ export class SettingCore {
   @clt.Type(() => Array)
   @nsg.ApiPropertyOptional()
   readonly filterSubtitles?: Array<string>
+
+  @clv.IsOptional()
+  @clv.IsArray()
+  @clt.Type(() => Array)
+  @nsg.ApiPropertyOptional()
+  readonly ffmpegCustomSaveParam?: Array<string>
 }

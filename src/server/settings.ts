@@ -12,7 +12,8 @@ const defaultCore = new app.api.SettingCore({
   fetchMaximumRetries: 8,
   fetchTimeoutRequest: 30000,
   fetchTimeoutRetry: 3750,
-  filterSubtitles: undefined
+  filterSubtitles: undefined,
+  ffmpegCustomSaveParam: undefined
 });
 
 const defaultCredential = new app.api.SettingCredential({

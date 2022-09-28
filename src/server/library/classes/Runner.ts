@@ -42,11 +42,17 @@ export class Runner {
     const metadata = subtitles
       .map((x, i) => [`-metadata:s:s:${i}`, `language=${x.language}`])
       .flatMap(x => x);
-    const runnable = ['-y']
+    let runnable = ['-y']
       .concat(inputs)
       .concat(mappings)
-      .concat(metadata)
-      .concat(['-c', 'copy', '-f', 'matroska', incompletePath]);
+      .concat(metadata);
+
+    if (app.settings.core.ffmpegCustomSaveParam) {
+      runnable = runnable.concat(app.settings.core.ffmpegCustomSaveParam).concat(['-f', 'matroska', incompletePath]);
+    } else {
+      runnable = runnable.concat(['-c', 'copy', '-f', 'matroska', incompletePath]);
+    }
+
     if (await app.ffmpegAsync(this.loggerService, runnable)) {
       throw new Error();
     } else {
